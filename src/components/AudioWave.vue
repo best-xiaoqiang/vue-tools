@@ -1,3 +1,4 @@
+<!-- 音频波形组件 -->
 <template>
   <div class="audio-wave-wrap" :class="{active}">
     <div 
