@@ -8,6 +8,12 @@
       <GradientProgress :play="gradientCirclePlay"></GradientProgress>
       <el-button type="primary" round @click="gradientCirclePlay = !gradientCirclePlay">播放</el-button>
     </v-card>
+    <v-card>
+      <CopyText :text="'我是一个粉刷匠'"></CopyText>
+    </v-card>
+    <v-card>
+      <Slider></Slider>
+    </v-card>
     <div class="title">toast</div>
     <v-card>
       <el-button type="primary" round @click="showToast">普通</el-button>
@@ -26,13 +32,17 @@
 import vCard from '@/components/HomeCard'
 import Toast from '@/components/Toast'
 import AudioWave from '@/components/AudioWave'
+import CopyText from '@/components/CopyText'
 import GradientProgress from '@/components/GradientProgress'
+import Slider from '@/components/Slider'
 export default {
   components: {
     vCard,
     AudioWave,
     GradientProgress,
-    Toast
+    Toast,
+    CopyText,
+    Slider
   },
   data() {
     return {
@@ -63,6 +73,9 @@ export default {
 }
 </script>
 <style lang="scss">
+
+@import '@/assets/css/index.scss';
+
 .home-wrap{
   padding: 10px;
   .el-button{

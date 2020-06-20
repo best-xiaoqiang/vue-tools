@@ -1,3 +1,15 @@
+
+@mixin ellipsis($line:1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  word-break: break-all;
+}
+.ellipsis-2 {
+  @include ellipsis(2);
+}
 .ab-fill{
   position: absolute;
   left: 0;
@@ -28,4 +40,10 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+.tran-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);;
 }
