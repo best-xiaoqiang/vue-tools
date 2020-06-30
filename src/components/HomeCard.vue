@@ -1,12 +1,22 @@
 <template>
   <div class="home-card-wrap">
     <el-card>
-      <div class="flex-left">
+      <div :class="[between ? 'flex-between' : 'flex-left']">
         <slot></slot>
       </div>
     </el-card>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    between: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+</script>
 <style lang="scss">
 .home-card-wrap{
   &>.el-card{

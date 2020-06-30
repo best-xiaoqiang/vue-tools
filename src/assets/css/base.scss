@@ -41,6 +41,11 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.flex-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .tran-center{
   position: absolute;
   left: 50%;
