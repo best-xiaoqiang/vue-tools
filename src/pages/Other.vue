@@ -11,7 +11,7 @@
     </v-card>
     <div class="title">watch的immediate方法</div>
     <v-card>
-      <input type="text" v-model="inputValue" />
+      <input type="text" v-model="inputValue" v-myFocus />
     </v-card>
   </div>
 </template>

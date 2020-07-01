@@ -33,6 +33,18 @@
     <v-card>
       <component :is="roleComponent" v-if="roleComponent"></component>
     </v-card>
+    <div class="title">插槽使用</div>
+    <v-card>
+      <SlotTest>
+        <div>我是默认插槽中的内容。</div>
+        <template v-slot:slot2="scope">
+          <div :style="scope.colorRed ? 'color: red' : ''">我是slot1插槽中的内容。</div>
+        </template>
+        <template v-slot:slot3>
+          <!-- <div>我是slot3插槽中的内容。</div> -->
+        </template>
+      </SlotTest>
+    </v-card>
 
     <Toast
       :show="toastText != ''"
@@ -50,6 +62,7 @@ import AudioWave from '@/components/AudioWave'
 import CopyText from '@/components/CopyText'
 import GradientProgress from '@/components/GradientProgress'
 import Slider from '@/components/Slider'
+import SlotTest from '@/components/SlotTest'
 export default {
   components: {
     vCard,
@@ -57,7 +70,8 @@ export default {
     GradientProgress,
     Toast,
     CopyText,
-    Slider
+    Slider,
+    SlotTest
   },
   data() {
     return {
