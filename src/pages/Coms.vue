@@ -45,6 +45,12 @@
         </template>
       </SlotTest>
     </v-card>
+    <div class="title">兄弟组件的通信(bus)</div>
+    <v-card>
+      <BrotherOne></BrotherOne>
+      <BrotherTwo></BrotherTwo>
+    </v-card>
+
 
     <Toast
       :show="toastText != ''"
@@ -63,6 +69,8 @@ import CopyText from '@/components/CopyText'
 import GradientProgress from '@/components/GradientProgress'
 import Slider from '@/components/Slider'
 import SlotTest from '@/components/SlotTest'
+import BrotherOne from '@/components/BrotherOne'
+import BrotherTwo from '@/components/BrotherTwo'
 export default {
   components: {
     vCard,
@@ -71,7 +79,9 @@ export default {
     Toast,
     CopyText,
     Slider,
-    SlotTest
+    SlotTest,
+    BrotherOne,
+    BrotherTwo
   },
   data() {
     return {
@@ -86,7 +96,6 @@ export default {
     }
   },
   mounted(){
-    console.log(this)
     setTimeout(() => {
       this.roleComponent = this.roleComponents['manualSlider']
     }, 3000);
