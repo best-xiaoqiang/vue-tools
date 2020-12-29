@@ -7,6 +7,7 @@ import Coms from '@/pages/Coms.vue'
 import Directive from '@/pages/Directive.vue'
 import Other from '@/pages/Other.vue'
 import Test from '@/pages/Test.vue'
+import Nav from '@/pages/Nav.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,10 @@ const routes = [
   {
     path: '/test',
     component: Test
+  },
+  {
+    path: '/nav',
+    component: Nav
   },
 ]
 

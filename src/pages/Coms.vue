@@ -50,6 +50,10 @@
       <BrotherOne></BrotherOne>
       <BrotherTwo></BrotherTwo>
     </v-card>
+    <div class="title">页面和nav联动：</div>
+    <v-card>
+      <el-button type="success" round @click="$router.push({path: '/nav'})">点击跳转</el-button>
+    </v-card>
 
 
     <Toast
