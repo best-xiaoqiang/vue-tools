@@ -42,13 +42,32 @@ export default {
         if (val && val.length) {
           this.$nextTick(() => {
             this.initScrollListener()
+            console.log('val', val)
+            var io = new IntersectionObserver(entries => {
+              console.log('entries', entries)
+              const entriesOne = entries[0]
+              const currentIndex = Array.prototype.findIndex.call(val, (item, index) => {
+                console.log(+entriesOne.intersectionRatio === 1, entriesOne.target.attributes.navKey.value, index)
+                return +entriesOne.intersectionRatio === 1 && entriesOne.target.attributes.navKey.value == index
+              })
+              if(currentIndex > -1){
+                this.currentIndex = currentIndex
+              }
+            },  {
+              threshold: [1]
+            });
+            val.forEach(item => {
+              io.observe(item);
+              // // 停止观察
+              // io.unobserve(item);
+            })
+
+            // 关闭观察器
+            // io.disconnect();
           })
         }
       }
     }
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {    
     initScrollListener() {
@@ -60,26 +79,6 @@ export default {
           top: itemDom.offsetTop,
           height: itemDom.offsetHeight
         })
-      }
-      window.addEventListener('scroll', this.onScroll)
-    },
-  
-    onScroll() {
-      const scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop
-      const screenHeight = this.getScreenHeight()
-      const currentIndex = this.itemTopArr.findIndex(function(item) {
-        const { top, height } = item
-        if (height < screenHeight) {
-          return top >= scrollTop && top + height <= scrollTop + screenHeight
-        } else {
-          return top >= scrollTop && top <= scrollTop + screenHeight
-        }
-      })
-      if (currentIndex > -1) {
-        this.currentIndex = currentIndex
       }
     },
   
@@ -108,7 +107,7 @@ export default {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 50px;
+  left: 50px;
   display: flex;
   flex-direction: column;
   z-index: 100;

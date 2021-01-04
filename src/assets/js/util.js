@@ -46,3 +46,8 @@ util.toRgba = function(colorHex, opacity){
     return color;
   }
 }
+
+// 判断数据类型
+const isType = type => target => Object.prototype.toString.call(target) === `[object ${type}]`
+
+util.isArray = isType('Array')
